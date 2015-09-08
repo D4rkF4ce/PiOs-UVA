@@ -6,9 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="1680" Height="1050">
+    d:DesignWidth="1366"
+    d:DesignHeight="768">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/lockscreen.png"/>
+        </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,17 +21,36 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
         <Grid Grid.Row="1" Background="{ThemeResource AppBarBackgroundThemeBrush}">
-           
+            <!--LoginScreen cannot been close-->
         </Grid>
 
-        <Grid Grid.Row="2">
-            <TextBlock Text="Username:" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="808,480,802,530"/>
-            <TextBlock Text="Password:" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="813,517,801,493"/>
+        <Grid Grid.Row="2" Grid.Column="2" Width="230" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
-            <TextBox x:Name="txtUsername" Height="22" Margin="917,468,468,530"/>
-            <PasswordBox x:Name="txtPassword" Height="22" Margin="917,505,468,493"/>
-            <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="1023,577,0,0" VerticalAlignment="Top" Width="141" Click="btnLogin_Click"/>
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Username:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="0" x:Name="txtUsername" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" />
+
+            <TextBlock Grid.Row="1" Text="Password:" VerticalAlignment="Center" />
+            <PasswordBox Grid.Row="1" x:Name="txtPassword" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" />
+
+            <Button Grid.Row="2" x:Name="btnLogin" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnLogin_Click" Width="140" Background="#FF050540" Foreground="White"/>
 
         </Grid>
 

@@ -17,12 +17,7 @@ namespace HiGHTECHNiX.Pi.SQLight
         {
             string _path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "user.db");
             _conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), _path);
-            //Create_and_Insert();
-
-            //if (!File.Exists(_path))
-            //{
-            //    Create_and_Insert();
-            //}
+            Create_and_Insert();
         }
 
         public void Create_and_Insert()

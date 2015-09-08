@@ -133,6 +133,7 @@
     <Content Include="Assets\Icons\start.png" />
     <Content Include="Assets\Icons\weather.png" />
     <Content Include="Assets\Icons\webbrowser.png" />
+    <Content Include="Assets\lockscreen.png" />
     <Content Include="Assets\PiOsWallpaper.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

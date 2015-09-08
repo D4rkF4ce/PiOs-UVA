@@ -7,6 +7,8 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,6 +35,9 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            
+
         }
 
         /// <summary>
@@ -77,7 +82,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
                 // übergeben werden
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
-            // Sicherstellen, dass das aktuelle Fenster aktiv ist
+            // Sicherstellen, dass das aktuelle Fenster aktiv ist            
             Window.Current.Activate();
         }
 
