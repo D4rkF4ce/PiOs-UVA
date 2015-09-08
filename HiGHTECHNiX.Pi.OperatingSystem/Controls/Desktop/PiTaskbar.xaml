@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop.PiTaskbar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="1024">
+
+
+    <Grid Background="#FF050540">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1"  Margin="3,3,3,3">
+            <Button x:Name="btnPiStart"  Background="#FF050540" Height="45" Width="55" Click="btnPiStart_Click" >
+                <Image Source="ms-appx:///Assets/Icons/start.png"/>
+            </Button>
+
+            <Button x:Name="btnPiWebBrowser" Background="#FF050540" Height="45" Width="55" Margin="60,0,0,0" Click="btnPiWebBrowser_Click" >
+                <Image Source="ms-appx:///Assets/Icons/webbrowser.png"/>
+            </Button>
+            <Button x:Name="btnPiWeather" Background="#FF050540" Height="45" Width="55" Margin="120,0,0,0" Click="btnPiWeather_Click" >
+                <Image Source="ms-appx:///Assets/Icons/weather.png"/>
+            </Button>
+            <Button x:Name="btnPiClock" Content="22:10:34 02.09.2015" Background="#FF050540" Height="45" HorizontalAlignment="Right" Foreground="White" Width="151" />
+        </Grid>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="HiGHTECHNiX.Pi.OperatingSystem.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HiGHTECHNiX.Pi.OperatingSystem"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:osControls="using:HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop"
+    mc:Ignorable="d" Width="1680" Height="1050">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+       
+        <Border x:Name="PiDesktopStage" Grid.Row="1" />
+        <osControls:PiTaskbar Grid.Row="2" />
+
+    </Grid>
+</Page>

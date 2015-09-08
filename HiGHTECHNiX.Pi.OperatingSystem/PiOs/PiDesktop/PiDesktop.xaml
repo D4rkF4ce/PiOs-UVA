@@ -1,0 +1,21 @@
+﻿<UserControl
+    x:Class="HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiDesktop.PiDesktop"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiDesktop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="1680" Height="1050">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image x:Name="DesktopBackground" Grid.Row="1" Source="ms-appx:///Assets/PiOsWallpaper.png" Stretch="Fill"/>
+
+    </Grid>
+</UserControl>
