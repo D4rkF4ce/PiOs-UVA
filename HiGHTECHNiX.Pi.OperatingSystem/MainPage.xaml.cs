@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiLogin;
+using Windows.UI.ViewManagement;
+using HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop;
 
 namespace HiGHTECHNiX.Pi.OperatingSystem
 {
@@ -27,8 +29,6 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
         public MainPage()
         {
             this.InitializeComponent();
-
-            //string _path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "user.db");
 
             ViewHandler.GetInstance().SetMainWindow(this);
             ViewHandler.GetInstance().Switch(PageType.Login);   
@@ -41,8 +41,16 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
 
             GC.Collect();
 
-            switch (page)
+            if (page != PageType.Login)
             {
+                this.PiTaskbarStage.Child = new Controls.Desktop.PiTaskbar();
+            }
+            else
+                this.PiTaskbarStage.Child = null;
+
+            switch (page)
+            {               
+
                 case PageType.Login:
                     this.PiDesktopStage.Child = new PiOs.PiLogin.PiLogin();
                     break;

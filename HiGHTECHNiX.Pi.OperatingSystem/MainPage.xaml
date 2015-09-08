@@ -6,9 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:osControls="using:HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop"
-    mc:Ignorable="d" Width="1680" Height="1050">
+    mc:Ignorable="d" d:DesignWidth="1366"
+    d:DesignHeight="768">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />
@@ -16,8 +17,9 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
        
-        <Border x:Name="PiDesktopStage" Grid.Row="1" />
-        <osControls:PiTaskbar Grid.Row="2" />
+        <Border x:Name="PiDesktopStage" Grid.Row="1" Grid.RowSpan="2" />
+        <Border x:Name="PiTaskbarStage" Grid.Row="2" Background="Transparent"/>
+        <!--<osControls:PiTaskbar Grid.Row="2" />-->
 
     </Grid>
 </Page>
