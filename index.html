@@ -3,47 +3,105 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
     <title>PiOs-UVA by D4rkF4ce</title>
   </head>
 
   <body>
-    <div id="container">
+    <header>
       <div class="inner">
+        <h1>PiOs-UVA</h1>
+        <h2>A Launcher as &quot;OperatingSystem&quot; for the Raspberry Pi 2 with Windows 10 IoT Core</h2>
+        <a href="https://github.com/D4rkF4ce/PiOs-UVA" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-        <header>
-          <h1>PiOs-UVA</h1>
-          <h2>A Launcher as &quot;OperatingSystem&quot; for the Raspberry Pi 2 with Windows 10 IoT Core</h2>
-        </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/D4rkF4ce/PiOs-UVA/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/D4rkF4ce/PiOs-UVA/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/D4rkF4ce/PiOs-UVA" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
           <h1>
 <a id="pios-uva" class="anchor" href="#pios-uva" aria-hidden="true"><span class="octicon octicon-link"></span></a>PiOs-UVA</h1>
 
 <p>A Launcher as "OperatingSystem" for the Raspberry Pi 2 with Windows 10 IoT Core</p>
+
+<h1>
+<a id="universal-windows-app" class="anchor" href="#universal-windows-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Universal Windows App</h1>
+
+<p>This repo contains a App Launcher for the Universal Windows Platform (UWP) in the Windows Software Development Kit (SDK) for Windows 10. These code was created with the Universal Windows templates available in Visual Studio, and are designed to run on desktop, mobile, and future devices that support the Universal Windows Platform.  </p>
+
+<h2>
+<a id="universal-windows-platform-development" class="anchor" href="#universal-windows-platform-development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Universal Windows Platform development</h2>
+
+<p>The project require Visual Studio 2015 and the Windows Software Development Kit (SDK) for Windows 10 to build, test, and deploy your Universal Windows apps. </p>
+
+<p><a href="http://go.microsoft.com/fwlink/?LinkID=280676">Get a free copy of Visual Studio 2015 Community Edition with support for building Universal Windows apps</a></p>
+
+<p>Additionally, to stay on top of the latest updates to Windows and the development tools, become a Windows Insider by joining the Windows Insider Program.</p>
+
+<p><a href="https://insider.windows.com/">Become a Windows Insider</a></p>
+
+<h2>
+<a id="using-the-launcher" class="anchor" href="#using-the-launcher" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the Launcher</h2>
+
+<p>The easiest way to use the app without using Git is to download the zip file containing the current version (using the link below or by clicking the "Download ZIP" button on the repo page). You can then unzip the entire archive and use the app in Visual Studio 2015.</p>
+
+<p><a href="../../archive/master.zip">Download the App ZIP</a></p>
+
+<p><strong>Notes:</strong> </p>
+
+<ul>
+<li>Before you unzip the archive, right-click it, select Properties, and then select Unblock.</li>
+<li>Be sure to unzip the entire archive, and not just individual files.<br>
+</li>
+<li>In Visual Studio 2015, the platform target defaults to ARM, so be sure to change that to x64 or x86 if you want to test on a non-ARM device. </li>
+</ul>
+
+<p>The app uses Linked files in Visual Studio to reduce duplication of common files, including app template files and image assets.<br>
+These common files are stored in the other folders at the root of the repository and referred to in the project files using links.  </p>
+
+<p><strong>Reminder:</strong> If you unzip individual files, they will not build due to references to other portions of the ZIP file that were not unzipped. You must unzip the entire archive if you intend to build the app.</p>
+
+<p>For more info about the programming models, platforms, languages, and APIs demonstrated in these app, please refer to the guidance, tutorials, and reference topics provided in the Windows 10 documentation available in the <a href="https://dev.windows.com">Windows Developer Center</a>. 
+(These samples are provided as-is in order to indicate or demonstrate the functionality of the programming models and feature APIs for Windows.)</p>
+
+<h2>
+<a id="contributions" class="anchor" href="#contributions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributions</h2>
+
+<p>The app is direct from the HiGHTECHNiX-Teams and we welcome your input on issues and suggestions for new features.<br>
+At this time we are not accepting new features from the public, but check back here as we evolve our contribution model.</p>
+
+<h2>
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See also</h2>
+
+<p>For additional Windows samples, see <a href="http://microsoft.github.io/windows/">Windows on GitHub</a>. </p>
         </section>
 
-        <footer>
-          PiOs-UVA is maintained by <a href="https://github.com/D4rkF4ce">D4rkF4ce</a><br>
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+        <aside id="sidebar">
+          <a href="https://github.com/D4rkF4ce/PiOs-UVA/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/D4rkF4ce/PiOs-UVA/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-        
+          <p class="repo-owner"><a href="https://github.com/D4rkF4ce/PiOs-UVA"></a> is maintained by <a href="https://github.com/D4rkF4ce">D4rkF4ce</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
       </div>
     </div>
+
+  
   </body>
 </html>
