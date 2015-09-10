@@ -44,7 +44,8 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.WebBrowser
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.webView.Stop();
-            this.webView = null;
+            txtWebAdress.Text = "https://www.google.at";
+            DoWebNavigate();
             ViewHandler.GetInstance().Switch(PageType.Desktop);
         }
 

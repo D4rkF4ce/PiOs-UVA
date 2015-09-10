@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:osControls="using:HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop"
     mc:Ignorable="d" d:DesignWidth="1366"
-    d:DesignHeight="768">
+    d:DesignHeight="768" KeyUp="Page_KeyUp">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
@@ -16,10 +16,21 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-       
-        <Border x:Name="PiDesktopStage" Grid.Row="1" Grid.RowSpan="2" />
-        <Border x:Name="PiTaskbarStage" Grid.Row="2" Background="Transparent"/>
-        <!--<osControls:PiTaskbar Grid.Row="2" />-->
+
+        <Grid.ColumnDefinitions>            
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Border x:Name="PiWallpaperStage" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Background="Transparent" />-->
+        <Border x:Name="PiLockScreenStage" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Background="Transparent" />
+        <Border x:Name="PiDesktopStage" Grid.Row="1" Grid.ColumnSpan="3" Background="Transparent" />
+        
+        <Border x:Name="PiTaskbarStage" Grid.Row="2" Grid.ColumnSpan="3" Background="Transparent" />
+
+        <Border x:Name="PiFlowMenuStage" Grid.Row="1" Grid.Column="0" Background="Transparent" />
+        <Border x:Name="PiSideBarStage" Grid.Row="1" Grid.Column="2" Background="Transparent" />
 
     </Grid>
 </Page>

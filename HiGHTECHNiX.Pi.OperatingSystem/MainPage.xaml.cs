@@ -28,44 +28,90 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+
+            OsEngine.OsEngine.CheckBasicData();
 
             ViewHandler.GetInstance().SetMainWindow(this);
-            ViewHandler.GetInstance().Switch(PageType.Login);   
+            ViewHandler.GetInstance().Switch(PageType.Login);
+
+            //PiWallpaperStage.Child = new PiWallpaper();
+
+            PiSideBarStage.Visibility = Visibility.Collapsed;
+
+            PiTaskbarStage.Visibility = Visibility.Collapsed;
+            PiTaskbarStage.Child = new Controls.Desktop.PiTaskbar();
+
+            PiFlowMenuStage.Visibility = Visibility.Collapsed;
+            PiFlowMenuStage.Child = new Controls.Desktop.PiFlowMenu();           
         }
-        
-        // Hack: we switch here ;)
+
         public void Switch(PageType page, object model = null)
-        {
-            this.PiDesktopStage.Child = null;
-
-            GC.Collect();
-
-            if (page != PageType.Login)
+        {            
+            try
             {
-                this.PiTaskbarStage.Child = new Controls.Desktop.PiTaskbar();
+                PiFlowMenuStage.Visibility = Visibility.Collapsed;
+
+                if (page == PageType.Login)
+                {
+                    PiLockScreenStage.Visibility = Visibility.Visible;
+                    PiDesktopStage.Visibility = Visibility.Collapsed;
+                    PiTaskbarStage.Visibility = Visibility.Collapsed;
+                }
+
+                switch (page)
+                {
+                    case PageType.Login:
+                        PiLockScreenStage.Child = new PiOs.PiLogin.PiLogin();
+                        break;
+                    case PageType.Desktop:
+                        PiDesktopStage.Child = new PiOs.PiDesktop.PiDesktop();
+                        break;
+                    case PageType.WebBrowser:
+                        PiDesktopStage.Child = new Apps.WebBrowser.PiWebBrowser();
+                        break;
+                    case PageType.Weather:
+                        PiDesktopStage.Child = new Apps.Weather.PiWeather();
+                        break;
+                    case PageType.System:
+                        PiDesktopStage.Child = new Apps.System.PiSystem();
+                        break;
+                }
+                
+                if (page != PageType.Login && PiLockScreenStage.Visibility == Visibility.Visible)
+                {                    
+                    PiDesktopStage.Visibility = Visibility.Visible;
+                    PiTaskbarStage.Visibility = Visibility.Visible;
+                    PiLockScreenStage.Visibility = Visibility.Collapsed;
+                }                
             }
-            else
-                this.PiTaskbarStage.Child = null;
+            catch (Exception ex)
+            {
 
-            switch (page)
-            {               
+            }            
+        }
 
-                case PageType.Login:
-                    this.PiDesktopStage.Child = new PiOs.PiLogin.PiLogin();
-                    break;
-                case PageType.Desktop:
-                    this.PiDesktopStage.Child = new PiOs.PiDesktop.PiDesktop();
-                    break;
-                case PageType.WebBrowser:
-                    this.PiDesktopStage.Child = new Apps.WebBrowser.PiWebBrowser();
-                    break;
-                case PageType.Weather:
-                    this.PiDesktopStage.Child = new Apps.Weather.PiWeather();
-                    break;
-                case PageType.System:
-                    this.PiDesktopStage.Child = new Apps.System.PiSystem();
-                    break;
+        private void Page_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            if (PiLockScreenStage.Visibility != Visibility.Visible)
+            {
+                //if (e.Key == Windows.System.VirtualKey.LeftWindows || e.Key == Windows.System.VirtualKey.RightWindows)
+                //{
+                //    if (PiFlowMenuStage.Visibility == Visibility.Collapsed)
+                //        PiFlowMenuStage.Visibility = Visibility.Visible;
+                //    else
+                //        PiFlowMenuStage.Visibility = Visibility.Collapsed;
+                //}
+
+                if (e.Key == Windows.System.VirtualKey.F10)
+                {
+                    if (PiFlowMenuStage.Visibility == Visibility.Collapsed)
+                        PiFlowMenuStage.Visibility = Visibility.Visible;
+                    else
+                        PiFlowMenuStage.Visibility = Visibility.Collapsed;
+                }
+
+
             }
         }
     } 

@@ -34,24 +34,27 @@
             <!--LoginScreen cannot been close-->
         </Grid>
 
-        <Grid Grid.Row="2" Grid.Column="2" Width="230" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid Grid.Row="2" Grid.Column="2" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
             <Grid.RowDefinitions>
 
+                <RowDefinition Height="200" />
+                <RowDefinition Height="5" />
                 <RowDefinition Height="40" />
                 <RowDefinition Height="40" />
                 <RowDefinition Height="40" />
 
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Username:" VerticalAlignment="Center" />
-            <TextBox Grid.Row="0" x:Name="txtUsername" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" />
+            <Border x:Name="border1" Grid.Row="0" BorderBrush="Gray" BorderThickness="5" Background="Transparent" Height="200" CornerRadius="50"  Width="200" />
+            <!--<TextBlock Grid.Row="0" Text="Username:" VerticalAlignment="Center" />-->
+            <TextBox Grid.Row="2" x:Name="txtUsername" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" PlaceholderText="Username" />
 
-            <TextBlock Grid.Row="1" Text="Password:" VerticalAlignment="Center" />
-            <PasswordBox Grid.Row="1" x:Name="txtPassword" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" />
+            <!--<TextBlock Grid.Row="1" Text="Password:" VerticalAlignment="Center" />-->
+            <PasswordBox Grid.Row="3" x:Name="txtPassword" Height="22" HorizontalAlignment="Left" VerticalAlignment="Center" Width="170" PlaceholderText="Password" />
 
-            <Button Grid.Row="2" x:Name="btnLogin" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnLogin_Click" Width="140" Background="#FF050540" Foreground="White"/>
-
+            <Button Grid.Row="3" x:Name="btnLogin" Content=">" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnLogin_Click" Width="30" Background="#FF050540" Foreground="White"/>
+            <TextBlock Grid.Row="4" x:Name="txtProjectVersion" Text="PiLauncher Version 0.8.1.2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF050540" FontFamily="Myanmar Text" FontSize="13.333"/>
         </Grid>
 
 

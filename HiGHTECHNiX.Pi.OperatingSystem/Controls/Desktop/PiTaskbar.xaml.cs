@@ -1,4 +1,5 @@
 ﻿using HiGHTECHNiX.Pi.OperatingSystem.Persistance;
+using HiGHTECHNiX.Pi.OsEngine;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,16 +15,27 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 {
     public sealed partial class PiTaskbar : UserControl
     {
+        DispatcherTimer _timer = new DispatcherTimer();  
+        
+
         public PiTaskbar()
         {
             this.InitializeComponent();
-            this.btnPiClock.Content = DateTime.Now.ToLocalTime().ToString();
+            //SyncSystemTime();
+        }
+
+        private void _timer_Tick(object sender, object e)
+        {
+            try
+            {
+                OsEngine.OsEngine.SystemDateTime.AddMinutes(1);
+                this.btnPiClock.Content = OsEngine.OsEngine.GetDateTimeToString();
+            }
+            catch (Exception) { }
         }
 
         private void btnPiStart_Click(object sender, RoutedEventArgs e)
@@ -39,6 +51,16 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
         private void btnPiWeather_Click(object sender, RoutedEventArgs e)
         {
             ViewHandler.GetInstance().Switch(PageType.Weather);
+        }
+
+        private void SyncSystemTime()
+        {
+            _timer.Tick += _timer_Tick;
+            _timer.Interval = new TimeSpan(0, 1, 0);
+            _timer.Start();
+
+            OsEngine.OsEngine.SystemDateTime = OsEngine.OsEngine.GetNistTime();
+            this.btnPiClock.Content = OsEngine.OsEngine.GetDateTimeToString();
         }
     }
 }

@@ -108,6 +108,9 @@
     <Compile Include="Apps\WebBrowser\PiWebBrowser.xaml.cs">
       <DependentUpon>PiWebBrowser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Desktop\PiFlowMenu.xaml.cs">
+      <DependentUpon>PiFlowMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Desktop\PiTaskbar.xaml.cs">
       <DependentUpon>PiTaskbar.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,9 @@
     <Compile Include="Persistance\ViewHandler.cs" />
     <Compile Include="PiOs\PiDesktop\PiDesktop.xaml.cs">
       <DependentUpon>PiDesktop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PiOs\PiDesktop\PiWallpaper.xaml.cs">
+      <DependentUpon>PiWallpaper.xaml</DependentUpon>
     </Compile>
     <Compile Include="PiOs\PiLogin\PiLogin.xaml.cs">
       <DependentUpon>PiLogin.xaml</DependentUpon>
@@ -161,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Desktop\PiFlowMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Desktop\PiTaskbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +180,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PiOs\PiDesktop\PiDesktop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PiOs\PiDesktop\PiWallpaper.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,6 +204,10 @@
     <ProjectReference Include="..\HiGHTECHNiX.Pi.Models\HiGHTECHNiX.Pi.Models.csproj">
       <Project>{4b645ffd-7b4a-4a13-b7bb-f3d6c31940bd}</Project>
       <Name>HiGHTECHNiX.Pi.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HiGHTECHNiX.Pi.OsEngine\HiGHTECHNiX.Pi.OsEngine.csproj">
+      <Project>{3b8b1c24-a44f-4f69-9a0f-6c788b11923d}</Project>
+      <Name>HiGHTECHNiX.Pi.OsEngine</Name>
     </ProjectReference>
     <ProjectReference Include="..\HiGHTECHNiX.Pi.SQLight\HiGHTECHNiX.Pi.SQLight.csproj">
       <Project>{a5fed7b9-3c6d-4a5d-8d0a-d3285a65166e}</Project>
