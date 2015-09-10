@@ -10,17 +10,29 @@ namespace HiGHTECHNiX.Pi.SQLight
 {
     public class UserGateway
     {
+        private static string _dbName = "user.db";
         private static string _path;
         private static SQLite.Net.SQLiteConnection _conn;
 
         public UserGateway()
         {
-            string _path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "user.db");
-            _conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), _path);
-            Create_and_Insert();
+            string _path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, _dbName);
+            _conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), _path);  
         }
 
-        public void Create_and_Insert()
+        public bool BasicDataAvailable()
+        {
+            try
+            {
+                var query = _conn.Table<User>();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public void CreateBasicData()
         {
             _conn.CreateTable<User>();
 
@@ -29,7 +41,8 @@ namespace HiGHTECHNiX.Pi.SQLight
                 Username = "admin",
                 Pwd = "winpi!"
             });
-        }
+        }       
+
 
         public User GetUser(string username, string password)
         {
