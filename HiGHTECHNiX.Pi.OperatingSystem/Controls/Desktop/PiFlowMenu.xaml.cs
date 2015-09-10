@@ -15,7 +15,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 {
@@ -23,7 +22,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
     {
         public PiFlowMenu()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();            
         }
 
         private void btnLockScreen_Click(object sender, RoutedEventArgs e)
@@ -51,6 +50,22 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
             {
                 
             }
+        }
+
+
+        private void btnWeather_Click(object sender, RoutedEventArgs e)
+        {
+            ViewHandler.GetInstance().Switch(PageType.Weather);
+        }
+
+        private void btnWebBrowser_Click(object sender, RoutedEventArgs e)
+        {
+            ViewHandler.GetInstance().Switch(PageType.WebBrowser);
+        }
+
+        private void btnSystem_Click(object sender, RoutedEventArgs e)
+        {
+            ViewHandler.GetInstance().Switch(PageType.System);
         }
     }
 }

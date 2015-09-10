@@ -10,7 +10,7 @@
     d:DesignWidth="1366">
 
 
-    <Grid Background="#FF050540">
+    <Grid Opacity="0.7" Background="#FF050540">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -19,17 +19,21 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1"  Margin="3,3,3,3">
-            <Button x:Name="btnPiStart"  Background="#FF050540" Height="45" Width="55" Click="btnPiStart_Click" >
+            <Button x:Name="btnPiStart" Background="Transparent" Height="45" Width="55" Click="btnPiStart_Click" >
                 <Image Source="ms-appx:///Assets/Icons/start.png"/>
             </Button>
 
-            <Button x:Name="btnPiWebBrowser" Background="#FF050540" Height="45" Width="55" Margin="60,0,0,0" Click="btnPiWebBrowser_Click" >
+            <Button x:Name="btnPiSystem" Background="Transparent" Height="45" Width="55" Margin="60,0,0,0" Click="btnPiSystem_Click" >
+                <Image Source="ms-appx:///Assets/Icons/system.png"/>
+            </Button>
+
+            <Button x:Name="btnPiWebBrowser" Background="Transparent" Height="45" Width="55" Margin="120,0,0,0" Click="btnPiWebBrowser_Click" >
                 <Image Source="ms-appx:///Assets/Icons/webbrowser.png"/>
             </Button>
-            <Button x:Name="btnPiWeather" Background="#FF050540" Height="45" Width="55" Margin="120,0,0,0" Click="btnPiWeather_Click" >
+            <Button x:Name="btnPiWeather" Background="Transparent" Height="45" Width="55" Margin="180,0,0,0" Click="btnPiWeather_Click" >
                 <Image Source="ms-appx:///Assets/Icons/weather.png"/>
             </Button>
-            <Button x:Name="btnPiClock" Content="22:10:34 02.09.2015" Background="#FF050540" Height="45" HorizontalAlignment="Right" Foreground="White" Width="151" />
+            <Button x:Name="btnPiClock" Content="22:10:34 02.09.2015" Background="Transparent" Height="45" HorizontalAlignment="Right" Foreground="White" Width="151" />
         </Grid>
 
 

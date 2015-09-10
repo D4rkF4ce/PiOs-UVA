@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Image x:Name="DesktopBackground" Grid.Row="1" Source="ms-appx:///Assets/PiOsWallpaper.png" Stretch="Fill"/>
+        <!--<Image x:Name="DesktopBackground" Grid.Row="1" Source="ms-appx:///Assets/PiOsWallpaper.png" Stretch="Fill"/>-->
 
     </Grid>
 </UserControl>
