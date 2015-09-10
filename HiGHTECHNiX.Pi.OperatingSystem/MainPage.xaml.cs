@@ -35,12 +35,12 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
             ViewHandler.GetInstance().SetMainWindow(this);
             ViewHandler.GetInstance().Switch(PageType.Login);
 
-            //PiWallpaperStage.Child = new PiWallpaper();
+            PiWallpaperStage.Child = new PiWallpaper();
 
             PiSideBarStage.Visibility = Visibility.Collapsed;
 
             PiTaskbarStage.Visibility = Visibility.Collapsed;
-            PiTaskbarStage.Child = new Controls.Desktop.PiTaskbar();
+            PiTaskbarStage.Child = new Controls.Desktop.PiTaskbar(this);
 
             PiFlowMenuStage.Visibility = Visibility.Collapsed;
             PiFlowMenuStage.Child = new Controls.Desktop.PiFlowMenu();           
@@ -95,24 +95,35 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
         {
             if (PiLockScreenStage.Visibility != Visibility.Visible)
             {
-                //if (e.Key == Windows.System.VirtualKey.LeftWindows || e.Key == Windows.System.VirtualKey.RightWindows)
-                //{
-                //    if (PiFlowMenuStage.Visibility == Visibility.Collapsed)
-                //        PiFlowMenuStage.Visibility = Visibility.Visible;
-                //    else
-                //        PiFlowMenuStage.Visibility = Visibility.Collapsed;
-                //}
-
-                if (e.Key == Windows.System.VirtualKey.F10)
+#if DEBUG
+                if (System.Diagnostics.Debugger.IsAttached)
                 {
-                    if (PiFlowMenuStage.Visibility == Visibility.Collapsed)
-                        PiFlowMenuStage.Visibility = Visibility.Visible;
-                    else
-                        PiFlowMenuStage.Visibility = Visibility.Collapsed;
+                    if (e.Key == Windows.System.VirtualKey.F10)
+                    {
+                        TogglePiFlowMenu();
+                    }
+                }            
+#else
+                if (e.Key == Windows.System.VirtualKey.LeftWindows || e.Key == Windows.System.VirtualKey.RightWindows)
+                {
+                    TogglePiFlowMenu();
                 }
-
-
+#endif
             }
         }
+
+        public PiFlowMenu GetFlowMenu()
+        {
+            return PiFlowMenuStage.Child as PiFlowMenu;
+        }
+
+        public void TogglePiFlowMenu()
+        {
+            if (PiFlowMenuStage.Visibility == Visibility.Collapsed)
+                PiFlowMenuStage.Visibility = Visibility.Visible;
+            else
+                PiFlowMenuStage.Visibility = Visibility.Collapsed;
+        }
+
     } 
 }

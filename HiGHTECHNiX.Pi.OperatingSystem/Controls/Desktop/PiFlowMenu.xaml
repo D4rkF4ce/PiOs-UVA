@@ -17,12 +17,65 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+        <!--<Button x:Name="sd" Grid.Row="3" Content="Lock Screen" Click="btnLockScreen_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>
+        <Button x:Name="ssdd" Grid.Row="4" Content="Reboot" Click="btnRestart_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>
+        <Button x:Name="dd" Grid.Row="5" Content="Shutdown" Click="btnShutdown_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>-->
 
-        <Button x:Name="btnLockScreen" Grid.Row="2" Content="Lock Screen" Click="btnLockScreen_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>
-        <Button x:Name="btnRestart" Grid.Row="3" Content="Restart" Click="btnRestart_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>
-        <Button x:Name="btnShutdown" Grid.Row="4" Content="Shutdown" Click="btnShutdown_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>
+
+        <!--<Button x:Name="btnPiSystem" Grid.Row="3" Background="Transparent" Height="45" Width="55"  Click="btnPiSystem_Click" >
+            
+        </Button>-->
+
+        <!--<Button x:Name="btnPiWebBrowser" Grid.Row="4" Background="Transparent" Height="45" Width="55"  Click="btnPiWebBrowser_Click" >
+            <Image Source="ms-appx:///Assets/Icons/webbrowser.png"/>
+            
+        </Button>-->
+        <!--<Button x:Name="btnPiWeather" Grid.Row="5" Background="Transparent" Height="45" Width="55" Click="btnPiWeather_Click" >
+            <Image Source="ms-appx:///Assets/Icons/.png"/>
+        </Button>-->
+
+        <TextBlock Grid.Row="2" Foreground="WhiteSmoke" FontSize="22" VerticalAlignment="Center" Margin="10,0,0,0" >
+            All Apps
+        </TextBlock>
+
+        <Button x:Name="btnSystem" Grid.Row="3" Background="Transparent" Click="btnSystem_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Source="ms-appx:///Assets/Icons/system.png" Height="30" Width="30" />
+                <TextBlock Foreground="White" FontSize="22" VerticalAlignment="Center" Margin="10,0,0,0" >System</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnWebBrowser" Grid.Row="4" Background="Transparent" Click="btnWebBrowser_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="ms-appx:///Assets/Icons/webbrowser.png" Height="30" Width="30" />
+                <TextBlock Foreground="White" FontSize="22" VerticalAlignment="Center" Margin="10,0,0,0" >WebBrowser</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnWeather" Grid.Row="5" Background="Transparent" Click="btnWeather_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="ms-appx:///Assets/Icons/weather.png" Height="30" Width="30" />
+                <TextBlock Foreground="White" FontSize="22" VerticalAlignment="Center" Margin="10,0,0,0"  >Weather</TextBlock>
+            </StackPanel>
+        </Button>
+
+
+
+
+        <Button x:Name="btnLockScreen" Grid.Row="11" Content="Lock Screen" Click="btnLockScreen_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>
+        <Button x:Name="btnRestart" Grid.Row="12" Content="Reboot" Click="btnRestart_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>
+        <Button x:Name="btnShutdown" Grid.Row="13" Content="Shutdown" Click="btnShutdown_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>
     </Grid>
 </UserControl>

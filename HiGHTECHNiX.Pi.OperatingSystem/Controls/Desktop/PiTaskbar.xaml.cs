@@ -19,12 +19,14 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 {
     public sealed partial class PiTaskbar : UserControl
     {
-        DispatcherTimer _timer = new DispatcherTimer();  
-        
+        DispatcherTimer _timer = new DispatcherTimer();
+        MainPage _mainPage;
 
-        public PiTaskbar()
+        public PiTaskbar(MainPage mainPage)
         {
             this.InitializeComponent();
+            _mainPage = mainPage;
+
             //SyncSystemTime();
         }
 
@@ -40,7 +42,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 
         private void btnPiStart_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.System);
+            _mainPage.TogglePiFlowMenu();
         }
 
         private void btnPiWebBrowser_Click(object sender, RoutedEventArgs e)
@@ -61,6 +63,11 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 
             OsEngine.OsEngine.SystemDateTime = OsEngine.OsEngine.GetNistTime();
             this.btnPiClock.Content = OsEngine.OsEngine.GetDateTimeToString();
+        }
+
+        private void btnPiSystem_Click(object sender, RoutedEventArgs e)
+        {
+            ViewHandler.GetInstance().Switch(PageType.System);
         }
     }
 }
