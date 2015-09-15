@@ -102,9 +102,11 @@
     <Compile Include="Apps\System\PiSystem.xaml.cs">
       <DependentUpon>PiSystem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Apps\Weather\Models\WeatherData.cs" />
     <Compile Include="Apps\Weather\PiWeather.xaml.cs">
       <DependentUpon>PiWeather.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Apps\Weather\WeatherPresenter.cs" />
     <Compile Include="Apps\WebBrowser\PiWebBrowser.xaml.cs">
       <DependentUpon>PiWebBrowser.xaml</DependentUpon>
     </Compile>
@@ -136,6 +138,17 @@
     <None Include="HiGHTECHNiX.Pi.OperatingSystem_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Apps\Weather\Assets\Backgrounds\afternoon.png" />
+    <Content Include="Apps\Weather\Assets\Backgrounds\midday.png" />
+    <Content Include="Apps\Weather\Assets\Backgrounds\morning.png" />
+    <Content Include="Apps\Weather\Assets\Backgrounds\night.png" />
+    <Content Include="Apps\Weather\Assets\Types\clear_sun.png" />
+    <Content Include="Apps\Weather\Assets\Types\cloud_sun.png" />
+    <Content Include="Apps\Weather\Assets\Types\rain.png" />
+    <Content Include="Apps\Weather\Assets\Types\snow.png" />
+    <Content Include="Apps\Weather\Assets\Types\storm.png" />
+    <Content Include="Apps\Weather\Assets\Types\storm_rain.png" />
+    <Content Include="Apps\Weather\Assets\Types\wind.png" />
     <Content Include="Assets\Icons\start.png" />
     <Content Include="Assets\Icons\system.png" />
     <Content Include="Assets\Icons\weather.png" />
