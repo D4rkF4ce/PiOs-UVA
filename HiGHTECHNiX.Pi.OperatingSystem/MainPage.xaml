@@ -31,6 +31,6 @@
         <Border x:Name="PiSideBarStage" Grid.Row="1" Grid.Column="2" Background="Transparent" />
         
         <Border x:Name="PiDesktopStage" Grid.Row="1" Grid.ColumnSpan="3" Background="Transparent" />
-        <Border x:Name="PiFlowMenuStage" Grid.Row="1" Grid.Column="0" Background="Transparent" />
+        <Border x:Name="PiFlowMenuStage" Grid.Row="1" Grid.Column="0" Background="Transparent" />       
     </Grid>
 </Page>

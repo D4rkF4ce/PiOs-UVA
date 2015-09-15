@@ -20,15 +20,18 @@ using Windows.UI.Xaml.Navigation;
 using HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiLogin;
 using Windows.UI.ViewManagement;
 using HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop;
+using HiGHTECHNiX.Pi.OsEngine;
 
 namespace HiGHTECHNiX.Pi.OperatingSystem
 {
 
     public sealed partial class MainPage : Page
-    {
+    {      
         public MainPage()
         {
             InitializeComponent();
+
+            TimeManager.SyncTime();
 
             OsEngine.OsEngine.CheckBasicData();
 
@@ -47,7 +50,10 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
         }
 
         public void Switch(PageType page, object model = null)
-        {            
+        {
+            DateTime time = TimeManager.Now;
+            
+                      
             try
             {
                 PiFlowMenuStage.Visibility = Visibility.Collapsed;

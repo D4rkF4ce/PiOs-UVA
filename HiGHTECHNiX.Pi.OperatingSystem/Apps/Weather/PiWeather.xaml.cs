@@ -1,4 +1,6 @@
-﻿using HiGHTECHNiX.Pi.OperatingSystem.Persistance;
+﻿using HiGHTECHNiX.Pi.OperatingSystem.Apps.Weather.Models;
+using HiGHTECHNiX.Pi.OperatingSystem.Persistance;
+using HiGHTECHNiX.Pi.OsEngine;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,6 +10,9 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -16,9 +21,9 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.Weather
 {
@@ -26,7 +31,8 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.Weather
     {
         public PiWeather()
         {
-            this.InitializeComponent();           
+            this.InitializeComponent();
+            DesktopBackground.Source = new BitmapImage(new Uri(WeatherPresenter.Wallpaper));
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -36,39 +42,26 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.Weather
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            string city = "VIE";
-            string country = "Austria";
+            WeatherData data = WeatherPresenter.GetWeatherData("AUSTRIA", "VIENNA");
+            lblLocation.Text = $"{data.City},{data.Country}";
 
-            location.Text = $"{city},{country}";
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"http://api.openweathermap.org/data/2.5/weather?q={city},{country}");
-            HttpClient client = new HttpClient();
-            var response = client.SendAsync(request).Result;
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                var result = response.Content.ReadAsStringAsync().Result;
-                var bytes = Encoding.Unicode.GetBytes(result);
-                using (MemoryStream stream = new MemoryStream(bytes))
-                {
-                    var serializer = new DataContractJsonSerializer(typeof(Weather));
-                    var weather = (Weather)serializer.ReadObject(stream);
-                    temperature.Text = $"Temperature: {(weather.main.temp - 273.15f):F2} °C";
-                }
-            }
-            else
-            {
-                temperature.Text = "Error";
-            }
+            var list = data.ForcastData.ForcastList.OrderBy(x => x.From);
+            int today = TimeManager.Now.Day;
+            int tomorrow = today + 1;
+            int dayAfter = today + 2;
+
+            lblToday.Text = TimeManager.Now.ToString("dddd");
+            imgToday.Source = list.First(x => x.From.Day == today).Symbol;
+            lblTodayC.Text = list.First(x => x.From.Day == today).TemperatureValue + "C°";
+
+            lblTomorrow.Text = TimeManager.Now.AddDays(1).ToString("dddd");
+            imgTomorrow.Source = list.First(x => x.From.Day == tomorrow).Symbol;
+            lblTomorrowC.Text = list.First(x => x.From.Day == tomorrow).TemperatureValue + "C°";
+
+            lblDayAfter.Text = TimeManager.Now.AddDays(2).ToString("dddd");
+            imgDayAfter.Source = list.First(x => x.From.Day == dayAfter).Symbol;
+            lblDayAfterC.Text = list.First(x => x.From.Day == dayAfter).TemperatureValue + "C°";
         }
-    }
 
-    public class Temperature
-    {
-        public double temp { get; set; }
-    }
-
-    public class Weather
-    {
-        public Temperature main { get; set; }
-    }
-
+    }  
 }

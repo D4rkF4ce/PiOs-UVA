@@ -27,15 +27,14 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
             this.InitializeComponent();
             _mainPage = mainPage;
 
-            //SyncSystemTime();
+            SyncSystemTime();
         }
 
         private void _timer_Tick(object sender, object e)
         {
             try
             {
-                OsEngine.OsEngine.SystemDateTime.AddMinutes(1);
-                this.btnPiClock.Content = OsEngine.OsEngine.GetDateTimeToString();
+                this.btnPiClock.Content = OsEngine.TimeManager.Now.ToString().Substring(0, TimeManager.Now.ToString().Length - 3);
             }
             catch (Exception) { }
         }
@@ -58,11 +57,9 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
         private void SyncSystemTime()
         {
             _timer.Tick += _timer_Tick;
+            this.btnPiClock.Content = OsEngine.TimeManager.Now.ToString().Substring(0, TimeManager.Now.ToString().Length -3);
             _timer.Interval = new TimeSpan(0, 1, 0);
             _timer.Start();
-
-            OsEngine.OsEngine.SystemDateTime = OsEngine.OsEngine.GetNistTime();
-            this.btnPiClock.Content = OsEngine.OsEngine.GetDateTimeToString();
         }
 
         private void btnPiSystem_Click(object sender, RoutedEventArgs e)
