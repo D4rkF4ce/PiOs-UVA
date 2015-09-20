@@ -1,4 +1,5 @@
 ﻿using HiGHTECHNiX.Pi.OperatingSystem.Persistance;
+using HiGHTECHNiX.Pi.OsEngine;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,8 +18,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.System
 {
     public sealed partial class PiSystem : UserControl
@@ -27,7 +26,9 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.System
         {
             this.InitializeComponent();
 
-            this.lblSystemInfo.Text = "HiGHTECHNiX Raspberry Pi 2 Launcher Version 0.8.2.1" + Environment.NewLine +
+            string version = OsManager.GetInstance().GetOsVersion();
+
+            this.lblSystemInfo.Text = $"HiGHTECHNiX Raspberry Pi 2 Launcher {version}" + Environment.NewLine +
                                         "for Windows IoT Core .Net 4.5.2" + Environment.NewLine;
 
             setSystemInfo();
@@ -35,7 +36,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.System
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.Desktop);
+            ViewManager.GetInstance().Switch(PageType.Desktop);
         }
 
         private void setSystemInfo()
@@ -64,6 +65,5 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.System
             IPAddress address = IPAddress.Parse(IpAddress.Last());
             return address;
         }
-
     }
 }

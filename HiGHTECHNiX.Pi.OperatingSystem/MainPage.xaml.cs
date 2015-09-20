@@ -21,26 +21,32 @@ using HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiLogin;
 using Windows.UI.ViewManagement;
 using HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop;
 using HiGHTECHNiX.Pi.OsEngine;
+using HiGHTECHNiX.Pi.OperatingSystem.Controls.Sidebar;
 
 namespace HiGHTECHNiX.Pi.OperatingSystem
 {
 
     public sealed partial class MainPage : Page
-    {      
+    {
+        private static PiMediaPlayer _mediaPlayerWidget = new PiMediaPlayer();
+
+
         public MainPage()
         {
             InitializeComponent();
 
-            TimeManager.SyncTime();
+            TimeManager.GetInstance().SyncTime();
+            SoundManager.GetInstance().SetSoundPlayer(this);
+            ViewManager.GetInstance().SetMainWindow(this);
+            OsManager.GetInstance().CheckBasicData();
 
-            OsEngine.OsEngine.CheckBasicData();
-
-            ViewHandler.GetInstance().SetMainWindow(this);
-            ViewHandler.GetInstance().Switch(PageType.Login);
+            
+            ViewManager.GetInstance().Switch(PageType.Login);
 
             PiWallpaperStage.Child = new PiWallpaper();
-
-            PiSideBarStage.Visibility = Visibility.Collapsed;
+            
+            PiWidgetStage.Visibility = Visibility.Collapsed;
+            PiWidgetStage.Child = _mediaPlayerWidget;            
 
             PiTaskbarStage.Visibility = Visibility.Collapsed;
             PiTaskbarStage.Child = new Controls.Desktop.PiTaskbar(this);
@@ -51,7 +57,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
 
         public void Switch(PageType page, object model = null)
         {
-            DateTime time = TimeManager.Now;
+            DateTime time = TimeManager.GetInstance().Now;
             
                       
             try
@@ -65,10 +71,18 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
                     PiTaskbarStage.Visibility = Visibility.Collapsed;
                 }
 
+
+                PiDesktopStage.Child = null;
+
                 switch (page)
-                {
+                {                    
                     case PageType.Login:
                         PiLockScreenStage.Child = new PiOs.PiLogin.PiLogin();
+                        SoundManager.GetInstance().PlayLockSound();
+
+                        
+
+
                         break;
                     case PageType.Desktop:
                         PiDesktopStage.Child = new PiOs.PiDesktop.PiDesktop();
@@ -94,33 +108,37 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
             catch (Exception ex)
             {
 
-            }            
+            }
+
+            GC.Collect();         
         }
 
         private void Page_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             if (PiLockScreenStage.Visibility != Visibility.Visible)
             {
-#if DEBUG
-                if (System.Diagnostics.Debugger.IsAttached)
-                {
-                    if (e.Key == Windows.System.VirtualKey.F10)
-                    {
-                        TogglePiFlowMenu();
-                    }
-                }            
-#else
                 if (e.Key == Windows.System.VirtualKey.LeftWindows || e.Key == Windows.System.VirtualKey.RightWindows)
                 {
                     TogglePiFlowMenu();
                 }
-#endif
             }
         }
 
-        public PiFlowMenu GetFlowMenu()
+        public void ToggleWidget(Widget widget, object model = null)
         {
-            return PiFlowMenuStage.Child as PiFlowMenu;
+            try
+            {                
+                switch (widget)
+                {
+                    case Widget.MediaPlayer:
+                        TogglePiMediaPlayerWidget();
+                        break;
+                }                
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public void TogglePiFlowMenu()
@@ -130,6 +148,28 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
             else
                 PiFlowMenuStage.Visibility = Visibility.Collapsed;
         }
+
+        private void TogglePiMediaPlayerWidget()
+        {
+            if (PiWidgetStage.Visibility == Visibility.Collapsed)
+                PiWidgetStage.Visibility = Visibility.Visible;
+            else
+                PiWidgetStage.Visibility = Visibility.Collapsed;
+        }
+
+        public void PlaySound(string source)
+        {
+            try
+            {
+                PiSoundPlayer.Source = new Uri(source);
+                PiSoundPlayer.Play();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
 
     } 
 }

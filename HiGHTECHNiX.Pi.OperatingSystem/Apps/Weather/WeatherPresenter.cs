@@ -24,8 +24,11 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.Weather
 
             try
             {
-                //HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"http://api.openweathermap.org/data/2.5/forecast?q={city},{country}&type=accurate&mode=xml&units=metric&cnt=10");     
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"http://api.openweathermap.org/data/2.5/forecast?q={city},{country}&mode=xml&units=metric");
+                HttpRequestMessage request = 
+                    new HttpRequestMessage(
+                        HttpMethod.Get, 
+                        $"http://api.openweathermap.org/data/2.5/forecast?q={city},{country}&mode=xml&units=metric"
+                        );
                 HttpClient client = new HttpClient();
 
                 var response = client.SendAsync(request).Result;
@@ -111,28 +114,22 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.Weather
         public static string Wallpaper
         {
             get {
-                DateTime now = TimeManager.Now;
+                DateTime now = TimeManager.GetInstance().Now;
                 string imgSource = String.Empty;
 
-                if (now.Hour.Between(3, 21))
+                if (now.Hour.Between(0, 24))
                     imgSource = "ms-appx:///Apps/Weather/Assets/Backgrounds/night.png";
-                if (now.Hour.Between(3, 10))
+                if (now.Hour.Between(4, 10))
                     imgSource = "ms-appx:///Apps/Weather/Assets/Backgrounds/morning.png";
                 if (now.Hour.Between(9, 16))
                     imgSource = "ms-appx:///Apps/Weather/Assets/Backgrounds/midday.png";
-                if (now.Hour.Between(14, 20))
+                if (now.Hour.Between(14, 21))
                     imgSource = "ms-appx:///Apps/Weather/Assets/Backgrounds/afternoon.png";
 
 
                 return imgSource;
             }
         }       
-
-        private static bool Between(this int num, int lower, int upper, bool inclusive = false)
-        {
-            return inclusive
-                ? lower <= num && num <= upper
-                : lower < num && num < upper;
-        }
+        
     }
 }

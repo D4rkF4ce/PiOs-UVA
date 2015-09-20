@@ -9,7 +9,8 @@
     d:DesignHeight="718"
     d:DesignWidth="300">
 
-    <Grid Opacity="0.7" Background="#FF050540">
+    <!--<Grid Opacity="0.7" Background="#FF050540">-->
+    <Grid Opacity="0.7" Background="#2E9AFE">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -25,26 +26,10 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!--<Button x:Name="sd" Grid.Row="3" Content="Lock Screen" Click="btnLockScreen_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>
-        <Button x:Name="ssdd" Grid.Row="4" Content="Reboot" Click="btnRestart_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>
-        <Button x:Name="dd" Grid.Row="5" Content="Shutdown" Click="btnShutdown_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White"/>-->
-
-
-        <!--<Button x:Name="btnPiSystem" Grid.Row="3" Background="Transparent" Height="45" Width="55"  Click="btnPiSystem_Click" >
-            
-        </Button>-->
-
-        <!--<Button x:Name="btnPiWebBrowser" Grid.Row="4" Background="Transparent" Height="45" Width="55"  Click="btnPiWebBrowser_Click" >
-            <Image Source="ms-appx:///Assets/Icons/webbrowser.png"/>
-            
-        </Button>-->
-        <!--<Button x:Name="btnPiWeather" Grid.Row="5" Background="Transparent" Height="45" Width="55" Click="btnPiWeather_Click" >
-            <Image Source="ms-appx:///Assets/Icons/.png"/>
-        </Button>-->
 
         <TextBlock Grid.Row="2" Foreground="WhiteSmoke" FontSize="22" VerticalAlignment="Center" Margin="10,0,0,0" >
             All Apps
@@ -72,10 +57,33 @@
         </Button>
 
 
+        <Grid Grid.Row="13">
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnLockScreen" Grid.Row="11" Content="Lock Screen" Click="btnLockScreen_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>
-        <Button x:Name="btnRestart" Grid.Row="12" Content="Reboot" Click="btnRestart_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>
-        <Button x:Name="btnShutdown" Grid.Row="13" Content="Shutdown" Click="btnShutdown_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>
+            <Button x:Name="btnLockScreen" Background="Transparent" Grid.Column="2" Click="btnLockScreen_Click" HorizontalAlignment="Center" >
+                <Image Source="ms-appx:///Assets/Icons/lockscreen.png"/>
+            </Button>
+
+            <Button x:Name="btnRestart" Background="Transparent"  Grid.Column="3" Click="btnRestart_Click" HorizontalAlignment="Center"  >
+                <Image Source="ms-appx:///Assets/Icons/reboot.png"/>
+            </Button>
+
+            <Button x:Name="btnShutdown" Background="Transparent"  Grid.Column="4" Click="btnShutdown_Click" HorizontalAlignment="Center"  >
+                <Image Source="ms-appx:///Assets/Icons/shutdown.png"/>
+            </Button>
+        </Grid>
+
+        <!--<Button x:Name="btnLockScreen" Grid.Row="11" Content="Lock Screen" Click="btnLockScreen_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>-->
+        <!--<Button x:Name="btnRestart" Grid.Row="12" Content="Reboot" Click="btnRestart_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>-->
+        <!--<Button x:Name="btnShutdown" Grid.Row="13" Content="Shutdown" Click="btnShutdown_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="WhiteSmoke" Background="Transparent"/>-->
     </Grid>
 </UserControl>

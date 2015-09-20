@@ -37,28 +37,28 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Apps.Weather
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.Desktop);
+            ViewManager.GetInstance().Switch(PageType.Desktop);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             WeatherData data = WeatherPresenter.GetWeatherData("AUSTRIA", "VIENNA");
-            lblLocation.Text = $"{data.City},{data.Country}";
+            lblLocation.Text = $"{data.City}, {data.Country}";
 
             var list = data.ForcastData.ForcastList.OrderBy(x => x.From);
-            int today = TimeManager.Now.Day;
+            int today = TimeManager.GetInstance().Now.Day;
             int tomorrow = today + 1;
             int dayAfter = today + 2;
 
-            lblToday.Text = TimeManager.Now.ToString("dddd");
+            lblToday.Text = TimeManager.GetInstance().Now.ToString("dddd");
             imgToday.Source = list.First(x => x.From.Day == today).Symbol;
             lblTodayC.Text = list.First(x => x.From.Day == today).TemperatureValue + "C°";
 
-            lblTomorrow.Text = TimeManager.Now.AddDays(1).ToString("dddd");
+            lblTomorrow.Text = TimeManager.GetInstance().Now.AddDays(1).ToString("dddd");
             imgTomorrow.Source = list.First(x => x.From.Day == tomorrow).Symbol;
             lblTomorrowC.Text = list.First(x => x.From.Day == tomorrow).TemperatureValue + "C°";
 
-            lblDayAfter.Text = TimeManager.Now.AddDays(2).ToString("dddd");
+            lblDayAfter.Text = TimeManager.GetInstance().Now.AddDays(2).ToString("dddd");
             imgDayAfter.Source = list.First(x => x.From.Day == dayAfter).Symbol;
             lblDayAfterC.Text = list.First(x => x.From.Day == dayAfter).TemperatureValue + "C°";
         }

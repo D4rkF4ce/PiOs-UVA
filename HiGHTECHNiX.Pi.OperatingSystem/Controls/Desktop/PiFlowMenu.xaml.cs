@@ -27,7 +27,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 
         private void btnLockScreen_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.Login);
+            ViewManager.GetInstance().Switch(PageType.Login);
         }
 
         private void btnRestart_Click(object sender, RoutedEventArgs e)
@@ -55,17 +55,17 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 
         private void btnWeather_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.Weather);
+            ViewManager.GetInstance().Switch(PageType.Weather);
         }
 
         private void btnWebBrowser_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.WebBrowser);
+            ViewManager.GetInstance().Switch(PageType.WebBrowser);
         }
 
         private void btnSystem_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.System);
+            ViewManager.GetInstance().Switch(PageType.System);
         }
     }
 }

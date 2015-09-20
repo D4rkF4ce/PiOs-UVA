@@ -34,7 +34,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
         {
             try
             {
-                this.btnPiClock.Content = OsEngine.TimeManager.Now.ToString().Substring(0, TimeManager.Now.ToString().Length - 3);
+                this.btnPiClock.Content = TimeManager.GetInstance().Now.ToString().Substring(0, TimeManager.GetInstance().Now.ToString().Length - 3);
             }
             catch (Exception) { }
         }
@@ -46,25 +46,30 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 
         private void btnPiWebBrowser_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.WebBrowser);
+            ViewManager.GetInstance().Switch(PageType.WebBrowser);
         }
 
         private void btnPiWeather_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.Weather);
+            ViewManager.GetInstance().Switch(PageType.Weather);
         }
 
         private void SyncSystemTime()
         {
             _timer.Tick += _timer_Tick;
-            this.btnPiClock.Content = OsEngine.TimeManager.Now.ToString().Substring(0, TimeManager.Now.ToString().Length -3);
+            this.btnPiClock.Content = TimeManager.GetInstance().Now.ToString().Substring(0, TimeManager.GetInstance().Now.ToString().Length -3);
             _timer.Interval = new TimeSpan(0, 1, 0);
             _timer.Start();
         }
 
         private void btnPiSystem_Click(object sender, RoutedEventArgs e)
         {
-            ViewHandler.GetInstance().Switch(PageType.System);
+            ViewManager.GetInstance().Switch(PageType.System);
+        }
+
+        private void btnMediaPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            ViewManager.GetInstance().ToggleWidget(Widget.MediaPlayer);
         }
     }
 }

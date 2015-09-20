@@ -9,7 +9,7 @@
     d:DesignWidth="1366"
     d:DesignHeight="718" Loaded="UserControl_Loaded">
 
-    <Grid Background="{ThemeResource BackButtonBackgroundThemeBrush}">
+    <Grid Background="Transparent">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -18,27 +18,17 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         
-        <Image x:Name="DesktopBackground" Grid.Row="2" Stretch="Fill"/>
         
-        <Grid Grid.Row="1" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+
+        <Grid Grid.Row="1" Background="#2E9AFE" Opacity="0.7">
             <TextBlock Text="PiWeather"  Height="20"  HorizontalAlignment="Left" />
             <Button x:Name="btnClose" Content="x" HorizontalAlignment="Right" Width="20" Height="20" Background="LightCoral" Click="btnClose_Click"/>
         </Grid>
-        
-        
-        <!--<Grid Grid.Row="2">
-            <StackPanel>
-                <TextBlock x:Name="location"
-                   FontSize="60"
-               Margin="5"/>
-                <TextBlock x:Name="temperature"
-               FontSize="50"
-               Margin="5"/>
-            </StackPanel>
-        </Grid>-->
 
-        <Grid Grid.Row="2">
+        <Image x:Name="DesktopBackground" Grid.Row="2" Stretch="Fill"/>      
 
+            <Grid Grid.Row="2" Background="Transparent">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="30" />
@@ -65,7 +55,7 @@
             <TextBlock x:Name="label" Text="Weather Forecast" Foreground="WhiteSmoke" FontSize="32" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="7" VerticalAlignment="Center"/>
             <TextBlock x:Name="lblLocation" Text="VIE, AUSTRIA" Foreground="WhiteSmoke" FontSize="22" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="7" VerticalAlignment="Center"/>
 
-            <Border x:Name="wtodayFrame" Grid.Row="6" Grid.Column="2" Background="#FF3E5878" Opacity="0.8" CornerRadius="25"/>
+            <Border x:Name="wtodayFrame" Grid.Row="6" Grid.Column="2" Background="#FFDDE1E6" Opacity="0.8" CornerRadius="25"/>
             <Border x:Name="wtoday" Grid.Row="6" Grid.Column="2" Background="Transparent" CornerRadius="25">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -85,7 +75,7 @@
                 </Grid>
             </Border>
 
-            <Border x:Name="wtomorrowFrame" Grid.Row="6" Grid.Column="4" Background="#FF3E5878" Opacity="0.8" CornerRadius="25"/>
+            <Border x:Name="wtomorrowFrame" Grid.Row="6" Grid.Column="4" Background="#FFDDE1E6" Opacity="0.8" CornerRadius="25"/>
             <Border x:Name="wtomorrow" Grid.Row="6" Grid.Column="4" Background="Transparent" CornerRadius="25">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -105,7 +95,7 @@
                 </Grid>
             </Border>
 
-            <Border x:Name="wdayAfterFrame" Grid.Row="6" Grid.Column="6" Background="#FF3E5878" Opacity="0.8" CornerRadius="25"/>
+            <Border x:Name="wdayAfterFrame" Grid.Row="6" Grid.Column="6" Background="#FFDDE1E6" Opacity="0.8" CornerRadius="25"/>
             <Border x:Name="wdayAfter" Grid.Row="6" Grid.Column="6" Background="Transparent" CornerRadius="25">
                 <Grid>
                     <Grid.RowDefinitions>
