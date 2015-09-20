@@ -1,4 +1,5 @@
 ﻿using HiGHTECHNiX.Pi.OperatingSystem.Persistance;
+using HiGHTECHNiX.Pi.OsEngine;
 using HiGHTECHNiX.Pi.SQLight;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiLogin
         public PiLogin()
         {
             this.InitializeComponent();
+            this.txtProjectVersion.Text = OsManager.GetInstance().GetOsVersion();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -35,7 +37,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiLogin
                 var user = _userGateway.GetUser(txtUsername.Text, txtPassword.Password);
                 if (user != null)
                 {
-                    ViewHandler.GetInstance().Switch(PageType.Desktop);
+                    ViewManager.GetInstance().Switch(PageType.Desktop);
                 }
             }
         }
