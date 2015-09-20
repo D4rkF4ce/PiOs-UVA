@@ -113,7 +113,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OsEngine.cs" />
+    <Compile Include="OsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskbarEngine.cs" />
     <Compile Include="TimeManager.cs" />

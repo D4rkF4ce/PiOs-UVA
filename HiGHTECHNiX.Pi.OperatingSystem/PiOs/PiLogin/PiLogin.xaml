@@ -9,54 +9,58 @@
     d:DesignWidth="1366"
     d:DesignHeight="768">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid Background="#FF181A21">
 
-        <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/lockscreen.png"/>
-        </Grid.Background>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid Grid.Row="1" Background="{ThemeResource AppBarBackgroundThemeBrush}">
-            <!--LoginScreen cannot been close-->
-        </Grid>
-
-        <Grid Grid.Row="2" Grid.Column="2" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Grid.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/lockscreen.png"/>
+            </Grid.Background>
 
             <Grid.RowDefinitions>
-
-                <RowDefinition Height="200" />
-                <RowDefinition Height="5" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Border x:Name="border1" Grid.Row="0" BorderBrush="Gray" BorderThickness="5" Background="Transparent" Height="200" CornerRadius="50"  Width="200" />
-            <!--<TextBlock Grid.Row="0" Text="Username:" VerticalAlignment="Center" />-->
-            <TextBox Grid.Row="2" x:Name="txtUsername" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" PlaceholderText="Username" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-            <!--<TextBlock Grid.Row="1" Text="Password:" VerticalAlignment="Center" />-->
-            <PasswordBox Grid.Row="3" x:Name="txtPassword" Height="22" HorizontalAlignment="Left" VerticalAlignment="Center" Width="170" PlaceholderText="Password" />
+            <Grid Grid.Row="1" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+                <!--LoginScreen cannot been close-->
+            </Grid>
 
-            <Button Grid.Row="3" x:Name="btnLogin" Content=">" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnLogin_Click" Width="30" Background="#FF050540" Foreground="White"/>
-            <TextBlock Grid.Row="4" x:Name="txtProjectVersion" Text="PiLauncher Version 0.8.1.2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF050540" FontFamily="Myanmar Text" FontSize="13.333"/>
+            <Grid Grid.Row="2" Grid.Column="2" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+
+                </Grid.RowDefinitions>
+
+                <Border x:Name="border1" Grid.Row="0" BorderBrush="Gray" BorderThickness="2" Background="Transparent" Height="200" CornerRadius="50"  Width="200" />
+                <!--<TextBlock Grid.Row="0" Text="Username:" VerticalAlignment="Center" />-->
+                <TextBox Grid.Row="2" x:Name="txtUsername" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" PlaceholderText="Username" />
+
+                <!--<TextBlock Grid.Row="1" Text="Password:" VerticalAlignment="Center" />-->
+                <PasswordBox Grid.Row="3" x:Name="txtPassword" Height="22" HorizontalAlignment="Left" VerticalAlignment="Center" Width="170" PlaceholderText="Password" />
+
+                <Button Grid.Row="3" x:Name="btnLogin" Content=">" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnLogin_Click" Width="30" Background="#FF050540" Foreground="White"/>
+                <TextBlock Grid.Row="4" x:Name="txtProjectVersion" Text="PiLauncher Version 0.8.1.2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF050540" FontFamily="Myanmar Text" FontSize="13.333"/>
+            </Grid>
+
+
         </Grid>
-
 
     </Grid>
 </UserControl>

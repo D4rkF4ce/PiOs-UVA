@@ -13,10 +13,6 @@ namespace HiGHTECHNiX.Pi.OsEngine
 {
     public static class TaskbarEngine
     {       
-        public static string GetDateTimeToString()
-        {
-            return OsEngine.SystemDateTime.ToString().Substring(0, OsEngine.SystemDateTime.ToString().Length - 3);
-        }
-
+        
     }
 }

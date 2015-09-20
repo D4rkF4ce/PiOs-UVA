@@ -5,32 +5,51 @@
     xmlns:local="using:HiGHTECHNiX.Pi.OperatingSystem"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:osControls="using:HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop"
+    xmlns:osControls="using:HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop"    
     mc:Ignorable="d" d:DesignWidth="1366"
     d:DesignHeight="768" KeyUp="Page_KeyUp">
 
-    <Grid x:Name="MainGrid" Background="{ThemeResource ButtonDisabledForegroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid x:Name="MainGrid" Background="#FF181A21" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />
+            <RowDefinition Height="400" />
             <RowDefinition Height="50" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>            
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
 
-        <Border x:Name="PiWallpaperStage" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Background="Transparent" />
-        <Border x:Name="PiLockScreenStage" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Background="Transparent" />    
-        
-        <Border x:Name="PiTaskbarStage" Grid.Row="2" Grid.ColumnSpan="3" Background="Transparent" />
-        
-        <Border x:Name="PiSideBarStage" Grid.Row="1" Grid.Column="2" Background="Transparent" />
-        
-        <Border x:Name="PiDesktopStage" Grid.Row="1" Grid.ColumnSpan="3" Background="Transparent" />
-        <Border x:Name="PiFlowMenuStage" Grid.Row="1" Grid.Column="0" Background="Transparent" />       
+        <MediaElement x:Name="PiSoundPlayer" Visibility="Collapsed"/>
+
+        <Border x:Name="PiWallpaperStage" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="Transparent" />
+        <Border x:Name="PiLockScreenStage" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="Transparent" />
+
+        <Border x:Name="PiTaskbarStage" Grid.Row="3" Grid.ColumnSpan="3" Background="Transparent" />
+
+
+
+
+        <Border x:Name="PiDesktopStage" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="Transparent" />
+
+        <!--<Grid x:Name="PiSideBarStage" Grid.Row="1" Grid.Column="2" Background="Transparent" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Border x:Name="PiWidgetStage" Grid.Row="2" Background="Transparent" />
+
+            </Grid>
+        </Grid>-->
+        <Border x:Name="PiWidgetStage" Grid.Row="2" Grid.Column="2" Background="Transparent" />
+        <Border x:Name="PiFlowMenuStage" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Background="Transparent" />       
     </Grid>
 </Page>

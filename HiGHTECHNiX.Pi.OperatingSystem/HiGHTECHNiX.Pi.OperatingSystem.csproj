@@ -99,6 +99,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppExtensions.cs" />
     <Compile Include="Apps\System\PiSystem.xaml.cs">
       <DependentUpon>PiSystem.xaml</DependentUpon>
     </Compile>
@@ -116,10 +117,14 @@
     <Compile Include="Controls\Desktop\PiTaskbar.xaml.cs">
       <DependentUpon>PiTaskbar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Sidebar\MediaPlayer\PiMediaPlayer.xaml.cs">
+      <DependentUpon>PiMediaPlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Persistance\ViewHandler.cs" />
+    <Compile Include="Persistance\SoundManager.cs" />
+    <Compile Include="Persistance\ViewManager.cs" />
     <Compile Include="PiOs\PiDesktop\PiDesktop.xaml.cs">
       <DependentUpon>PiDesktop.xaml</DependentUpon>
     </Compile>
@@ -149,12 +154,23 @@
     <Content Include="Apps\Weather\Assets\Types\storm.png" />
     <Content Include="Apps\Weather\Assets\Types\storm_rain.png" />
     <Content Include="Apps\Weather\Assets\Types\wind.png" />
+    <Content Include="Assets\Icons\lockscreen.png" />
+    <Content Include="Assets\Icons\mediaplayer.png" />
+    <Content Include="Assets\Icons\reboot.png" />
+    <Content Include="Assets\Icons\shutdown.png" />
     <Content Include="Assets\Icons\start.png" />
     <Content Include="Assets\Icons\system.png" />
     <Content Include="Assets\Icons\weather.png" />
     <Content Include="Assets\Icons\webbrowser.png" />
     <Content Include="Assets\lockscreen.png" />
     <Content Include="Assets\PiOsWallpaper.png" />
+    <Content Include="Assets\Sounds\Windows_Logon.wav" />
+    <Content Include="Assets\Videos\promo_windows_10_features.mp4" />
+    <Content Include="Controls\Sidebar\MediaPlayer\Assets\Icons\back.png" />
+    <Content Include="Controls\Sidebar\MediaPlayer\Assets\Icons\forward.png" />
+    <Content Include="Controls\Sidebar\MediaPlayer\Assets\Icons\pause.png" />
+    <Content Include="Controls\Sidebar\MediaPlayer\Assets\Icons\play.png" />
+    <Content Include="Controls\Sidebar\MediaPlayer\Assets\Icons\stop.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -186,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Desktop\PiTaskbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Sidebar\MediaPlayer\PiMediaPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +248,7 @@
       <Name>HiGHTECHNiX.Pi.SQLight</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

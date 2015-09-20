@@ -17,6 +17,7 @@
         </Grid.RowDefinitions>
 
         <Image x:Name="DesktopBackground" Grid.Row="1" Source="ms-appx:///Assets/PiOsWallpaper.png" Stretch="Fill"/>
+       
 
     </Grid>
 </UserControl>

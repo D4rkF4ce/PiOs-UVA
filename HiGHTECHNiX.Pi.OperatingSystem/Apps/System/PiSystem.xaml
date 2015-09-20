@@ -9,41 +9,45 @@
     d:DesignWidth="1366"
     d:DesignHeight="718">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Transparent">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Background="{ThemeResource AppBarBackgroundThemeBrush}">
-            <TextBlock Text="PiSystem"  Height="20"  HorizontalAlignment="Left" />
-            <Button x:Name="btnClose" Content="X" HorizontalAlignment="Right" Width="20" Height="20" Background="LightCoral" Click="btnClose_Click" VerticalAlignment="Bottom"/>
+            <Grid Grid.Row="1" Background="#2E9AFE" Opacity="0.7">
+                <TextBlock Text="PiSystem"  Height="20"  HorizontalAlignment="Left" />
+                <Button x:Name="btnClose" Content="X" HorizontalAlignment="Right" Width="20" Height="20" Background="LightCoral" Click="btnClose_Click" VerticalAlignment="Bottom"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Image Source="ms-appx:///Assets/Square44x44Logo.scale-200.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="170"/>
+                <TextBlock VerticalAlignment="Center" Text="Pi-Launcher Beta" HorizontalAlignment="Center" Height="32" Margin="427,439,427,227" Width="170" FontWeight="Bold" FontSize="21.333"/>
+                <TextBlock x:Name="lblSystemInfo" VerticalAlignment="Center" HorizontalAlignment="Center" Height="101" Margin="121,498,104,99" Width="799"/>
+
+                <TextBlock x:Name="textBlock" Margin="10,43,217,0" Text="Device-Name" FontWeight="Bold" VerticalAlignment="Top"/>
+                <TextBlock x:Name="lblDeviceName" Margin="10,63,217,0"  Text="???.???.???.???"  VerticalAlignment="Top"/>
+
+                <TextBlock x:Name="textBlock1" Margin="10,95,278,0"  Text="Type" FontWeight="Bold"  VerticalAlignment="Top"/>
+                <TextBlock x:Name="lblDeviceType" Margin="10,115,217,0"  Text="???.???.???.???"  VerticalAlignment="Top"/>
+
+                <TextBlock x:Name="textBlock3" Margin="10,147,153,0"  Text="Operating System" FontWeight="Bold"  VerticalAlignment="Top"/>
+                <TextBlock x:Name="lblOperatingSystem" Margin="10,167,217,0"  Text="???.???.???.???" VerticalAlignment="Top" />
+
+                <TextBlock x:Name="textBlock2" Margin="10,199,217,0"  Text="IP-Adress"  FontWeight="Bold" VerticalAlignment="Top"/>
+                <TextBlock x:Name="lblIpAdress" Margin="10,219,186,0"  Text="???.???.???.???" VerticalAlignment="Top"/>
+
+                <TextBlock x:Name="textBlock2_Copy" Margin="10,264,217,0"  Text="Local Folder"  FontWeight="Bold" VerticalAlignment="Top"/>
+                <TextBlock x:Name="lblRootFolder" Margin="10,284,186,0"  Text="???.???.???.???" VerticalAlignment="Top"/>
+
+            </Grid>
+
+
         </Grid>
-
-        <Grid Grid.Row="2">
-            <Image Source="ms-appx:///Assets/Square44x44Logo.scale-200.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="170"/>
-            <TextBlock VerticalAlignment="Center" Text="Pi-Launcher Beta" HorizontalAlignment="Center" Height="32" Margin="427,439,427,227" Width="170" Foreground="#FF0B0B44" FontWeight="Bold" FontSize="21.333"/>
-            <TextBlock x:Name="lblSystemInfo" VerticalAlignment="Center" HorizontalAlignment="Center" Height="101" Margin="121,498,104,99" Width="799" Foreground="#FF0B0B44"/>
-
-            <TextBlock x:Name="textBlock" Margin="10,43,217,0" Text="Device-Name" FontWeight="Bold" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-            <TextBlock x:Name="lblDeviceName" Margin="10,63,217,0"  Text="???.???.???.???" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-
-            <TextBlock x:Name="textBlock1" Margin="10,95,278,0"  Text="Type" FontWeight="Bold" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-            <TextBlock x:Name="lblDeviceType" Margin="10,115,217,0"  Text="???.???.???.???" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-
-            <TextBlock x:Name="textBlock3" Margin="10,147,153,0"  Text="Operating System" FontWeight="Bold" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-            <TextBlock x:Name="lblOperatingSystem" Margin="10,167,217,0"  Text="???.???.???.???" Foreground="#FF0B0B44" VerticalAlignment="Top" />
-
-            <TextBlock x:Name="textBlock2" Margin="10,199,217,0"  Text="IP-Adress"  FontWeight="Bold" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-            <TextBlock x:Name="lblIpAdress" Margin="10,219,186,0"  Text="???.???.???.???" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-
-            <TextBlock x:Name="textBlock2_Copy" Margin="10,264,217,0"  Text="Local Folder"  FontWeight="Bold" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-            <TextBlock x:Name="lblRootFolder" Margin="10,284,186,0"  Text="???.???.???.???" Foreground="#FF0B0B44" VerticalAlignment="Top"/>
-
-        </Grid>
-
-
     </Grid>
+    
+    
 </UserControl>
