@@ -10,12 +10,23 @@ using Windows.UI.Xaml;
 
 namespace HiGHTECHNiX.Pi.OsEngine
 {
-    public static class TimeManager
+    public sealed class TimeManager
     {
         private static DispatcherTimer _timer = new DispatcherTimer();
-        private static DateTime _time;        
+        private static DateTime _time;
 
-        public static DateTime Now
+        private readonly static TimeManager _instance = new TimeManager();
+        public static TimeManager GetInstance()
+        {
+            return _instance;
+        }
+
+        private TimeManager()
+        {
+            // only for private using !! 
+        }
+
+        public DateTime Now
         {
             get
             {                
@@ -23,7 +34,7 @@ namespace HiGHTECHNiX.Pi.OsEngine
             }            
         }
 
-        public static bool SyncTime()
+        public bool SyncTime()
         {
             try
             {
