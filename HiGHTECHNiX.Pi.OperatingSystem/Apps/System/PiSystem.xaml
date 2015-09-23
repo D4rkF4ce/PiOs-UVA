@@ -18,7 +18,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="1" Background="#2E9AFE" Opacity="0.7">
+            <Grid Grid.Row="1" Background="LightSlateGray" Opacity="0.7">
                 <TextBlock Text="PiSystem"  Height="20"  HorizontalAlignment="Left" />
                 <Button x:Name="btnClose" Content="X" HorizontalAlignment="Right" Width="20" Height="20" Background="LightCoral" Click="btnClose_Click" VerticalAlignment="Bottom"/>
             </Grid>

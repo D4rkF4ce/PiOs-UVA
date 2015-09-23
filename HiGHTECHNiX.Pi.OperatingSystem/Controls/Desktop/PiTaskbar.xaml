@@ -10,7 +10,7 @@
     d:DesignWidth="1366">
 
 
-    <Grid Opacity="0.7" Background="#2E9AFE">
+    <Grid Opacity="0.7" Background="LightSlateGray">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
