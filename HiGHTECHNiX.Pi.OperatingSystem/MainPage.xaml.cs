@@ -22,70 +22,55 @@ using Windows.UI.ViewManagement;
 using HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop;
 using HiGHTECHNiX.Pi.OsEngine;
 using HiGHTECHNiX.Pi.OperatingSystem.Controls.Sidebar;
+using HiGHTECHNiX.Pi.OperatingSystem.Controls.Sidebar.MediaPlayer;
 
 namespace HiGHTECHNiX.Pi.OperatingSystem
 {
-
     public sealed partial class MainPage : Page
     {
-        private static PiMediaPlayer _mediaPlayerWidget = new PiMediaPlayer();
-
-
         public MainPage()
         {
             InitializeComponent();
+            InitializeSystem();
+        }
 
+        private void InitializeSystem()
+        {
             TimeManager.GetInstance().SyncTime();
             SoundManager.GetInstance().SetSoundPlayer(this);
             ViewManager.GetInstance().SetMainWindow(this);
             OsManager.GetInstance().CheckBasicData();
-
-            
             ViewManager.GetInstance().Switch(PageType.Login);
-
-            PiWallpaperStage.Child = new PiWallpaper();
+            PiTaskbar.GetInstance().SetMainWindow(this);
             
+            PiWallpaperStage.Child = new PiWallpaper();
+
+            PiLockScreenStage.Child = PiLogin.GetInstance();
+
             PiWidgetStage.Visibility = Visibility.Collapsed;
-            PiWidgetStage.Child = _mediaPlayerWidget;            
+            PiWidgetStage.Child = PiMediaPlayerWidget.GetInstance();
 
             PiTaskbarStage.Visibility = Visibility.Collapsed;
-            PiTaskbarStage.Child = new Controls.Desktop.PiTaskbar(this);
+            PiTaskbarStage.Child = PiTaskbar.GetInstance();
 
             PiFlowMenuStage.Visibility = Visibility.Collapsed;
-            PiFlowMenuStage.Child = new Controls.Desktop.PiFlowMenu();           
+            PiFlowMenuStage.Child = PiFlowMenu.GetInstance();
         }
 
         public void Switch(PageType page, object model = null)
-        {
-            DateTime time = TimeManager.GetInstance().Now;
-            
-                      
+        {                    
             try
             {
                 PiFlowMenuStage.Visibility = Visibility.Collapsed;
-
-                if (page == PageType.Login)
-                {
-                    PiLockScreenStage.Visibility = Visibility.Visible;
-                    PiDesktopStage.Visibility = Visibility.Collapsed;
-                    PiTaskbarStage.Visibility = Visibility.Collapsed;
-                }
-
-
                 PiDesktopStage.Child = null;
 
                 switch (page)
                 {                    
                     case PageType.Login:
-                        PiLockScreenStage.Child = new PiOs.PiLogin.PiLogin();
-                        SoundManager.GetInstance().PlayLockSound();
-
-                        
-
-
+                        ToggleLockscreen(true);
                         break;
                     case PageType.Desktop:
-                        PiDesktopStage.Child = new PiOs.PiDesktop.PiDesktop();
+                        PiDesktopStage.Child = PiDesktop.GetInstance();
                         break;
                     case PageType.WebBrowser:
                         PiDesktopStage.Child = new Apps.WebBrowser.PiWebBrowser();
@@ -98,12 +83,10 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
                         break;
                 }
                 
-                if (page != PageType.Login && PiLockScreenStage.Visibility == Visibility.Visible)
-                {                    
-                    PiDesktopStage.Visibility = Visibility.Visible;
-                    PiTaskbarStage.Visibility = Visibility.Visible;
-                    PiLockScreenStage.Visibility = Visibility.Collapsed;
-                }                
+                if (page != PageType.Login)
+                    ToggleLockscreen(false);
+
+
             }
             catch (Exception ex)
             {
@@ -115,11 +98,16 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
 
         private void Page_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            if (PiLockScreenStage.Visibility != Visibility.Visible)
+            if (PiLockScreenStage.Visibility == Visibility.Collapsed)
             {
                 if (e.Key == Windows.System.VirtualKey.LeftWindows || e.Key == Windows.System.VirtualKey.RightWindows)
                 {
                     TogglePiFlowMenu();
+                }
+
+                if ((e.Key == Windows.System.VirtualKey.LeftWindows || e.Key == Windows.System.VirtualKey.RightWindows) && e.Key == Windows.System.VirtualKey.L)
+                {
+                    ToggleLockscreen(true);
                 }
             }
         }
@@ -127,13 +115,13 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
         public void ToggleWidget(Widget widget, object model = null)
         {
             try
-            {                
+            {
                 switch (widget)
                 {
                     case Widget.MediaPlayer:
                         TogglePiMediaPlayerWidget();
                         break;
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -147,6 +135,23 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
                 PiFlowMenuStage.Visibility = Visibility.Visible;
             else
                 PiFlowMenuStage.Visibility = Visibility.Collapsed;
+        }
+
+        public void ToggleLockscreen(bool show)
+        {
+            if (show)
+            {
+                PiLockScreenStage.Visibility = Visibility.Visible;                
+                PiDesktopStage.Visibility = Visibility.Collapsed;
+                PiTaskbarStage.Visibility = Visibility.Collapsed;
+                SoundManager.GetInstance().PlayLockSound();
+            }
+            else
+            {
+                PiDesktopStage.Visibility = Visibility.Visible;
+                PiTaskbarStage.Visibility = Visibility.Visible;
+                PiLockScreenStage.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void TogglePiMediaPlayerWidget()
@@ -169,7 +174,6 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
 
             }
         }
-
 
     } 
 }

@@ -15,9 +15,9 @@
             <RowDefinition Height="20" />
             <RowDefinition Height="*" />            
             <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>                   
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Row="1" Background="#2E9AFE" Opacity="0.7" >
+        <Grid Grid.Row="1" Background="LightSlateGray" Opacity="0.7" >
                 <TextBlock Text="PiWebBrowser"  Height="20"  HorizontalAlignment="Left" />
                 <Button x:Name="btnClose" Content="x" HorizontalAlignment="Right" Width="20" Height="20" Background="LightCoral" Click="btnClose_Click"/>
             </Grid>

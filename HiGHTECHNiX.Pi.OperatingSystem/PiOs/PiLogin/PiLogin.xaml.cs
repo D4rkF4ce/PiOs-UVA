@@ -24,6 +24,12 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiLogin
     {
         UserGateway _userGateway = new UserGateway();
 
+        private readonly static PiLogin _instance = new PiLogin();
+        public static PiLogin GetInstance()
+        {
+            return _instance;
+        }
+
         public PiLogin()
         {
             this.InitializeComponent();
@@ -38,6 +44,8 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiLogin
                 if (user != null)
                 {
                     ViewManager.GetInstance().Switch(PageType.Desktop);
+                    txtUsername.Text = "";
+                    txtPassword.Password = "";
                 }
             }
         }

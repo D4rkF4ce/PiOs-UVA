@@ -1,0 +1,73 @@
+﻿<UserControl
+    x:Class="HiGHTECHNiX.Pi.OperatingSystem.Controls.Sidebar.MediaPlayer.PiMediaPlayerWidget"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HiGHTECHNiX.Pi.OperatingSystem.Controls.Sidebar.MediaPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+     d:DesignHeight="230"
+    d:DesignWidth="400">
+
+    <Grid Opacity="0.7" Background="LightSlateGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <TextBlock Text="PiPlayer"  Height="15"  HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10.667" Foreground="White"/>
+            <TextBlock x:Name="btnClose" Text="X"  Height="15"  HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="10.667" Foreground="White" Tapped="btnClose_Tapped"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <MediaElement x:Name="MediaPlayer"/>
+        </Grid>
+
+        <Grid Grid.Row="3" HorizontalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Button x:Name="btnPlay" Grid.Column="2" Click="btnPlay_Click" >
+                <Image Source="ms-appx:///Controls/Sidebar/MediaPlayer/Assets/Icons/play.png"/>
+            </Button>
+
+            <Button x:Name="btnPause" Grid.Column="2" Click="btnPause_Click" Visibility="Collapsed" >
+                <Image Source="ms-appx:///Controls/Sidebar/MediaPlayer/Assets/Icons/pause.png"/>
+            </Button>
+
+            <Button x:Name="btnStop" Grid.Column="3" Click="btnStop_Click">
+                <Image Source="ms-appx:///Controls/Sidebar/MediaPlayer/Assets/Icons/stop.png"/>
+            </Button>
+
+
+            <Button x:Name="btnMoveBack" Grid.Column="4" Click="btnMoveBack_Click">
+                <Image Source="ms-appx:///Controls/Sidebar/MediaPlayer/Assets/Icons/back.png"/>
+            </Button>
+
+
+            <Button x:Name="btnMoveForward" Grid.Column="5" Click="btnMoveForward_Click">
+                <Image Source="ms-appx:///Controls/Sidebar/MediaPlayer/Assets/Icons/forward.png"/>
+            </Button>
+
+            <!--<Button x:Name="btnOpen" Content="Open" Click="btnOpen_Click" Width="50" Height="25" Margin="5"/>-->
+        </Grid>
+    </Grid>
+
+</UserControl>
+

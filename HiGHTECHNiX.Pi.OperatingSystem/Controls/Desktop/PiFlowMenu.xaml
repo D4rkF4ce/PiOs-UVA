@@ -10,23 +10,18 @@
     d:DesignWidth="300">
 
     <!--<Grid Opacity="0.7" Background="#FF050540">-->
-    <Grid Opacity="0.7" Background="#2E9AFE">
+    <Grid Opacity="0.7" Background="LightSlateGray">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
             <RowDefinition Height="60" />
+            <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
@@ -57,7 +52,7 @@
         </Button>
 
 
-        <Grid Grid.Row="13">
+        <Grid Grid.Row="7">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
