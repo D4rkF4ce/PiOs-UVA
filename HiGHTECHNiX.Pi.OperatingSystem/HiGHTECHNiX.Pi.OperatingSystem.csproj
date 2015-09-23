@@ -114,6 +114,9 @@
     <Compile Include="Controls\Desktop\PiFlowMenu.xaml.cs">
       <DependentUpon>PiFlowMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Desktop\PiNotify.xaml.cs">
+      <DependentUpon>PiNotify.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Desktop\PiTaskbar.xaml.cs">
       <DependentUpon>PiTaskbar.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Persistance\NotifyManager.cs" />
     <Compile Include="Persistance\SoundManager.cs" />
     <Compile Include="Persistance\ViewManager.cs" />
     <Compile Include="PiOs\PiDesktop\PiDesktop.xaml.cs">
@@ -198,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Desktop\PiFlowMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Desktop\PiNotify.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

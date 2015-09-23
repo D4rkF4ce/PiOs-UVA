@@ -36,13 +36,16 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
 
         private void InitializeSystem()
         {
+            NotifyManager.GetInstance().SetMainWindow(this);
             TimeManager.GetInstance().SyncTime();
             SoundManager.GetInstance().SetSoundPlayer(this);
             ViewManager.GetInstance().SetMainWindow(this);
             OsManager.GetInstance().CheckBasicData();
             ViewManager.GetInstance().Switch(PageType.Login);
             PiTaskbar.GetInstance().SetMainWindow(this);
-            
+
+            NotifyStage.Child = PiNotify.GetInstance();
+
             PiWallpaperStage.Child = new PiWallpaper();
 
             PiLockScreenStage.Child = PiLogin.GetInstance();
@@ -105,7 +108,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
                     TogglePiFlowMenu();
                 }
 
-                if ((e.Key == Windows.System.VirtualKey.LeftWindows || e.Key == Windows.System.VirtualKey.RightWindows) && e.Key == Windows.System.VirtualKey.L)
+                if (e.Key == Windows.System.VirtualKey.L)
                 {
                     ToggleLockscreen(true);
                 }
@@ -160,6 +163,16 @@ namespace HiGHTECHNiX.Pi.OperatingSystem
                 PiWidgetStage.Visibility = Visibility.Visible;
             else
                 PiWidgetStage.Visibility = Visibility.Collapsed;
+        }
+
+        public void ShowNotify()
+        {
+            NotifyStage.Visibility = Visibility.Visible;
+        }
+
+        public void CloseNotify()
+        {
+            NotifyStage.Visibility = Visibility.Collapsed;
         }
 
         public void PlaySound(string source)

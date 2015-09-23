@@ -80,5 +80,19 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
         {
             ViewManager.GetInstance().ToggleWidget(Widget.MediaPlayer);
         }
+
+        private void btnPiClock_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TimeManager.GetInstance().SyncTime();
+                string msg = "Time sync successfully! It's now: " + TimeManager.GetInstance().Now.ToString();
+                NotifyManager.GetInstance().NotifyUser("Time Sync Message", msg, NotifyType.StatusMessage, NotifyButton.Ok);
+            }
+            catch (Exception ex)
+            {
+                NotifyManager.GetInstance().NotifyUser("Time Sync Error", ex.StackTrace, NotifyType.ErrorMessage, NotifyButton.Ok);
+            }            
+        }
     }
 }

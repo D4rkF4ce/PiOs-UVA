@@ -36,7 +36,7 @@
             <Button x:Name="btnMediaPlayer" Background="Transparent" Height="45" Width="55" HorizontalAlignment="Right" Margin="0,0,160,0" Click="btnMediaPlayer_Click" >
                 <Image Source="ms-appx:///Assets/Icons/mediaplayer.png"/>
             </Button>
-            <Button x:Name="btnPiClock" Content="22:10:34 02.09.2015" Background="Transparent" Height="45" HorizontalAlignment="Right" Foreground="White" Width="151" />
+            <Button x:Name="btnPiClock" Content="22:10:34 02.09.2015" Background="Transparent" Height="45" HorizontalAlignment="Right" Foreground="White" Width="151" Click="btnPiClock_Click" />
         </Grid>
 
 
