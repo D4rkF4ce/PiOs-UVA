@@ -20,6 +20,12 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 {
     public sealed partial class PiFlowMenu : UserControl
     {
+        private readonly static PiFlowMenu _instance = new PiFlowMenu();
+        public static PiFlowMenu GetInstance()
+        {
+            return _instance;
+        }
+
         public PiFlowMenu()
         {
             this.InitializeComponent();            

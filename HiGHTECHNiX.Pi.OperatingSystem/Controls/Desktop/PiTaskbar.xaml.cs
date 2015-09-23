@@ -20,14 +20,23 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
     public sealed partial class PiTaskbar : UserControl
     {
         DispatcherTimer _timer = new DispatcherTimer();
-        MainPage _mainPage;
+        MainPage _root;
 
-        public PiTaskbar(MainPage mainPage)
+        private readonly static PiTaskbar _instance = new PiTaskbar();
+        public static PiTaskbar GetInstance()
+        {
+            return _instance;
+        }
+
+        public PiTaskbar()
         {
             this.InitializeComponent();
-            _mainPage = mainPage;
-
             SyncSystemTime();
+        }
+
+        public void SetMainWindow(MainPage parent)
+        {
+            _root = parent;
         }
 
         private void _timer_Tick(object sender, object e)
@@ -41,7 +50,7 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Controls.Desktop
 
         private void btnPiStart_Click(object sender, RoutedEventArgs e)
         {
-            _mainPage.TogglePiFlowMenu();
+            ViewManager.GetInstance().TogglePiFlowMenu();
         }
 
         private void btnPiWebBrowser_Click(object sender, RoutedEventArgs e)

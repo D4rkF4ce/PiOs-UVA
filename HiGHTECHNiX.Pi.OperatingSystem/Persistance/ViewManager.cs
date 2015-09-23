@@ -32,6 +32,11 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.Persistance
             _root = parent;
         }
 
+        public void TogglePiFlowMenu()
+        {
+            _root.TogglePiFlowMenu();
+        }
+
         public void ToggleWidget(Widget widget, object model = null)
         {
             _root.ToggleWidget(widget, model);

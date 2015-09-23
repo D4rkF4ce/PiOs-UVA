@@ -19,6 +19,12 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiDesktop
 {
     public sealed partial class PiDesktop : UserControl
     {
+        private readonly static PiDesktop _instance = new PiDesktop();
+        public static PiDesktop GetInstance()
+        {
+            return _instance;
+        }
+
         public PiDesktop()
         {
             this.InitializeComponent();
