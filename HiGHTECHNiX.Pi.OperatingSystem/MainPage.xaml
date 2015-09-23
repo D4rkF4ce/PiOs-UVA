@@ -28,17 +28,17 @@
 
         <!--Wallpaper-->
         <Border x:Name="PiWallpaperStage" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="Transparent" />
-        <!--<Border x:Name="PiLockScreenStage" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="Transparent" />-->
 
         <!--Taskbar & Desktop-->
         <Border x:Name="PiTaskbarStage" Grid.Row="3" Grid.ColumnSpan="3" Background="Transparent" />
         <Border x:Name="PiDesktopStage" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="Transparent" />
         
-        <!--Widget & FlowMenu-->        
+        <!--Widget, FlowMenu & Lockscreen-->        
         <Border x:Name="PiWidgetStage" Grid.Row="2" Grid.Column="2" Background="Transparent" />        
         <Border x:Name="PiFlowMenuStage" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Background="Transparent" />
         <Border x:Name="PiLockScreenStage" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="Transparent" />
 
+        <Border x:Name="NotifyStage" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="Transparent" Visibility="Collapsed" />
 
     </Grid>
 </Page>

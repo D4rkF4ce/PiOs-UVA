@@ -47,6 +47,8 @@ namespace HiGHTECHNiX.Pi.OperatingSystem.PiOs.PiLogin
                     txtUsername.Text = "";
                     txtPassword.Password = "";
                 }
+                else
+                    NotifyManager.GetInstance().NotifyUser("Authentication Error", "Wrong username or password.", NotifyType.ErrorMessage, NotifyButton.Ok);
             }
         }
     }
