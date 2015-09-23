@@ -10,7 +10,7 @@
   <Identity
     Name="02c767a3-e7a2-4bc2-9e95-e03008845e1d"
     Publisher="CN=m.kinc"
-    Version="0.8.3.1" />
+    Version="0.8.4.1" />
 
   <mp:PhoneIdentity PhoneProductId="02c767a3-e7a2-4bc2-9e95-e03008845e1d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
